@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braseiro Grill Churrascaria | O Melhor Churrasco da Cidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">       
+    <style>    
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #8B0000;
+            --secondary: #D4AF37;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --gray: #333;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #A52A2A;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header e Navegação */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px; /* Altura fixa para o header */
+        }
+
+        .logo-image {
+            height: 160px; /* Ajuste conforme sua logo */
+            width: auto;
+            display: block;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero { 
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Sobre */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Pratos */
+        .dishes {
+            background-color: #f9f9f9;
+        }
+        
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .dish-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .dish-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .dish-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .dish-card:hover .dish-image img {
+            transform: scale(1.1);
+        }
+        
+        .dish-info {
+            padding: 20px;
+        }
+        
+        .dish-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Ambiente */
+        .gallery {
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Localização */
+        .location {
+            background-color: #f9f9f9;
+        }
+        
+        .location-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .location-info {
+            flex: 1;
+        }
+        
+        .location-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .location-info i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Contato e Redes Sociais */
+        .contact {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact h2:after {
+            background-color: var(--secondary);
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .social-media {
+            margin-top: 30px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--gray);
+            color: white;
+            padding: 20px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo-image {
+            height: 150px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content,
+            .location-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-image,
+            .map {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark);
+                flex-direction: column;
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .dishes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Seção de Avaliações */
+            .reviews-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+
+            .review-card {
+                background: white;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .review-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .review-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .review-stars {
+                color: #FFD700;
+                font-size: 1.2rem;
+            }
+
+            .review-date {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .review-text {
+                font-style: italic;
+                line-height: 1.6;
+                margin-bottom: 15px;
+                color: #333;
+            }
+
+            .review-author {
+                color: var(--primary);
+                font-weight: 600;
+            }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="imagens/logo-braseiro.png" alt="Braseiro Grill" class="logo-image">
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#dishes">Pratos</a></li>
+                    <li><a href="#gallery">Ambiente</a></li>
+                    <li><a href="#location">Localização</a></li>
+                    <li><a href="#reviews">Avaliações</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Braseiro Grill Churrascaria</h1>
+            <p>Sua melhor experiência gastronômica em Grajaú-MA</p>
+            <a href="#dishes" class="btn">Conheça Nossos Pratos</a>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <div class="about-text">            
+                    <p>Braseiro Grill Churrascaria – Sabor, variedade e tradição em Grajaú-MA</p>
+                    <p>Se você procura um lugar completo para comer bem, com variedade e qualidade, seja bem-vindo à Braseiro Grill Churrascaria!</p>
+                    <p>Estamos localizados na BR-226, no antigo Posto JM, em Grajaú-MA, e somos referência na região quando o assunto é churrasco de verdade, buffet variado e frutos do mar frescos.</p>
+                    <p>O que oferecemos:</p>
+                    <p>🔥 Rodízio completo de carnes</p>
+                    <p>Servimos uma grande variedade de cortes, preparados na brasa com todo o cuidado e sabor que você merece. Aqui você encontra:</p>
+                    <p>Picanha, filé, cupim, alcatra, maminha, contra filé, carneiro, frango e outras opções especiais</p>
+                    <p>🍽️ Buffet self-service por quilo<p>
+                    <p>Nosso buffet é ideal para quem busca liberdade na escolha e praticidade na hora de montar o prato. Sempre fresco, com pratos quentes, saladas e acompanhamentos variados.</p>
+                    <p>🌊 Frutos do mar frescos diferente de tudo o que você já viu em uma churrascaria, temos opções exclusivas no buffet com:</p>
+                    <p>Salmão, filé de pescada, camarão, polvo, lula e mariscos</p>
+                    <p>Aqui na Braseiro Grill, unimos tradição, sabor e atendimento acolhedor em um só lugar — perfeito para almoços em família, encontros com amigos ou aquela pausa gostosa durante a viagem.</p>
+                    <p>Venha viver essa experiência</p>
+                    <a href="#contact" class="btn">Entre em contato</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Interior do restaurante Braseiro Grill">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pratos -->
+    <section class="dishes" id="dishes">
+        <div class="container">
+            <h2>Nossos Pratos</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="imagens/churrasco.jpeg" alt="Churrasco">
+                    </div>
+                    <div class="dish-info">
+                        <h3>Churrasco Premium</h3>
+                        <p>Carnes nobres, suculentas e cheias de sabor, do jeitinho que você merece!</p>
+                    </div>
+                </div>
+                
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="imagens/buffet.jpeg" alt="Buffet Self Service">
+                    </div>
+                    <div class="dish-info">
+                        <h3>Buffet Self Service</h3>
+                        <p>Buffet completo para todos os gostos – frescor, qualidade e muito sabor.</p>
+                    </div>
+                </div>
+                
+                <div class="dish-card">
+                    <div class="dish-image">
+                        <img src="imagens/salada.jpeg" alt="Saladas Frescas">
+                    </div>
+                    <div class="dish-info">
+                        <h3>Saladas Frescas</h3>
+                        <p>Saladas fresquinhas, coloridas e preparadas com muito cuidado.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="dishes" style="background-color: white;">
+    <div class="container">
+        <h2>Especiais da Casa</h2>
+        <div class="dishes-grid">
+            <div class="dish-card">
+                <div class="dish-image">
+                    <img src="imagens/salmaoaomolho.jpeg" alt="Salmão ao Molho de Maracujá">
+                </div>
+                <div class="dish-info">
+                    <h3>Salmão ao Molho de Maracujá</h3>
+                    <p>Salmão grelhado servido ao molho de maracujá, unindo sabor marcante e frescor tropical.</p>
+                </div>
+            </div>
+            
+            <div class="dish-card">
+                <div class="dish-image">
+                    <img src="imagens/bobocamarao.jpeg" alt="Bobo de camarão">
+                </div>
+                <div class="dish-info">
+                    <h3>Bobó de Camarão</h3>
+                    <p>Cremoso e cheio de sabor, nosso Bobó de Camarão traz a suculência dos camarões e o toque especial dos temperos típicos da culinária brasileira.</p>
+                </div>
+            </div>
+            
+            <div class="dish-card">
+                <div class="dish-image">
+                    <img src="imagens/paellafrutosmar.jpeg" alt="Paella">
+                </div>
+                <div class="dish-info">
+                    <h3>Paella de Frutos do Mar</h3>
+                    <p>Uma explosão de sabores com arroz aromático, camarões, lulas, polvo, mexilhões e temperos especiais, preparada no melhor estilo mediterrâneo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Ambiente -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Nosso Ambiente</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="imagens/fachada.jpeg" alt="Fachada do restaurante">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagens/salao.jpeg" alt="Área interna do restaurante">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagens/salao2.jpeg" alt="Área interna do restaurante">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagens/logoled.jpeg" alt="Logo Led">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2>Localização</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Visite-nos</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> BR 226, Auto Posto Grajaú-MA</p>
+                    <p><i class="fas fa-phone"></i> (99) 98463-4238</p>
+                    <p><i class="fas fa-envelope"></i> braseirogrill.gj@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Segunda a Segunda - Almoço:  11h às 14:30h | Janta: 18h às 21h</p>
+                    <a href="https://maps.app.goo.gl/sKVDCUAq7nZktDp4A" target="_blank" class="btn">Como Chegar</a>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d897.9919905173082!2d-46.13607567177232!3d-5.819786040697157!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92d21f005c802e9d%3A0xc9856dc300a38f27!2sChurrascaria%20Braseiro%20Grill!5e1!3m2!1spt-BR!2sbr!4v1759350316458!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Avaliações -->
+    <section class="reviews" id="reviews" style="background-color: var(--light); padding: 80px 0;">
+        <div class="container">
+            <h2>O Que Nossos Clientes Dizem</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.2rem;">
+                Sua opinião é muito importante para nós! 
+            </p>
+            
+            <div class="reviews-grid">
+                <!-- Avaliação 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <div class="review-date">Há 2 meses</div>
+                    </div>
+                    <p class="review-text">
+                        "Queria um restaurante desses na minha cidade kkk Parada obrigatória em Grajaú, comida SENSACIONAL"
+                    </p>
+                    <div class="review-author">
+                        <strong>Feldmann Rafael</strong>
+                    </div>
+                </div>
+                
+                <!-- Avaliação 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <div class="review-date">Há 1 mês</div>
+                    </div>
+                    <p class="review-text">
+                        "Ambiente limpo e organizado. A comida estava uma delícia e o atendimento nota 10. Voltarei mais vezes"
+                    </p>
+                    <div class="review-author">
+                        <strong>Maria Clara Bezerra</strong>
+                    </div>
+                </div>
+                
+                <!-- Avaliação 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            ⭐⭐⭐⭐
+                        </div>
+                        <div class="review-date">Há 3 dias</div>
+                    </div>
+                    <p class="review-text">
+                        "Comida deliciosa,lugar maravilhoso. Gosto muito. 10 de 10"
+                    </p>
+                    <div class="review-author">
+                        <strong>Siloedia Lermen</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botão para Google Maps -->
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="margin-bottom: 20px;">Deixe Sua Avaliação</h3>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">
+                    Ajude outros clientes compartilhando sua experiência
+                </p>
+                <a href="https://g.page/r/CSePowDDbYXJEAE/review" target="_blank" class="btn" style="background-color: #4285F4;">
+                    <i class="fab fa-google"></i> Avaliar no Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Redes Sociais -->
+    <section class="contact" id="contact">
+    <div class="container">
+        <h2>Contato & Redes Sociais</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Entre em Contato</h3>
+                <p>Reserve sua mesa ou entre em contato conosco para eventos e comemorações especiais.</p>
+                
+                <div class="social-media">
+                    <h3>Siga-nos</h3>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/braseirogrill_grajau" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5599984634238?text=Olá! Gostaria de informações sobre reservas e cardápio do Braseiro Grill" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+<div class="contact-form">
+    <h3 style="text-align: center; margin-bottom: 30px; color: var(--secondary);">Faça sua Reserva</h3>
+    <form onsubmit="enviarReservaWhatsApp(event)">
+        <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="telefone">WhatsApp *</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipoMesa">Tipo de Mesa Preferida</label>
+            <select id="tipoMesa" name="tipoMesa">
+                <option value="">Indiferente</option>
+                <option value="sala">Sala Privativa</option>                
+                <option value="grupo">Mesa para Grupo</option>
+                <option value="casal">Mesa de Casal</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="pessoas">Número de Pessoas *</label>
+            <select id="pessoas" name="pessoas" required>
+                <option value="">Selecione</option>
+                <option value="1-2">1-2 pessoas</option>
+                <option value="3-4">3-4 pessoas</option>
+                <option value="5-6">5-6 pessoas</option>
+                <option value="7+">7+ pessoas</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="data">Data da Reserva</label>
+            <input type="date" id="data" name="data">
+        </div>
+        
+        <div class="form-group">
+            <label for="horario">Horário Preferencial</label>
+            <select id="horario" name="horario">
+                <option value="">Qualquer horário</option>
+                <option value="11:00">11:00h</option>
+                <option value="12:00">12:00h</option>
+                <option value="13:00">13:00h</option>
+                <option value="18:00">18:00h</option>
+                <option value="19:00">19:00h</option>
+                <option value="20:00">20:00h</option>
+                <option value="21:00">21:00h</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Ex: Comemoração de aniversário, mesa na varanda, necessidade especial..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn" style="width: 100%;">
+            <i class="fab fa-whatsapp"></i> Enviar Reserva via WhatsApp
+        </button>
+        
+        <div id="mensagemSucesso" style="display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-top: 20px; text-align: center;">
+            ✅ Reserva enviada com sucesso! Verifique seu WhatsApp.
+        </div>
+    </form>
+</div>
+
+<script>
+function enviarReservaWhatsApp(event) {
+    event.preventDefault();
+    
+    // Coletar dados do formulário
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const pessoas = document.getElementById('pessoas').value;
+    const data = document.getElementById('data').value;
+    const horario = document.getElementById('horario').value;
+    const observacoes = document.getElementById('observacoes').value;
+    
+    // Formatar a data (se foi preenchida)
+    let dataFormatada = 'Não definida';
+    if (data) {
+        const dataObj = new Date(data);
+        dataFormatada = dataObj.toLocaleDateString('pt-BR');
+    }
+    
+    // Criar mensagem personalizada
+    const mensagem = `🍖 *NOVA RESERVA - BRASEIRO GRILL* 🍖%0A%0A` +
+                    `👤 *Nome:* ${nome}%0A` +
+                    `📞 *Telefone:* ${telefone}%0A` +
+                    `👥 *Número de Pessoas:* ${pessoas}%0A` +
+                    `📅 *Data:* ${dataFormatada}%0A` +
+                    `⏰ *Horário:* ${horario || 'Qualquer horário'}%0A` +
+                    `📝 *Observações:* ${observacoes || 'Nenhuma'}%0A%0A` +
+                    `_Reserva solicitada através do site_`;
+    
+    // Mostrar mensagem de sucesso
+    const mensagemSucesso = document.getElementById('mensagemSucesso');
+    mensagemSucesso.style.display = 'block';
+    
+    // Abrir WhatsApp
+    setTimeout(() => {
+        window.open(`https://wa.me/5599984634238?text=${mensagem}`, '_blank');
+    }, 1000);
+    
+    // Limpar formulário após 3 segundos
+    setTimeout(() => {
+        event.target.reset();
+        mensagemSucesso.style.display = 'none';
+    }, 5000);
+}
+
+// Máscara para telefone
+document.getElementById('telefone').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length <= 11) {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+        e.target.value = value;
+    }
+});
+
+// Configurar data mínima como hoje
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('data').min = today;
+</script>
+
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+            <img src="imagens/logo-braseiro.png" alt="Braseiro Grill Churrascaria" class="footer-logo-image">
+        </div>
+            <div class="footer-links">
+                <a href="#home">Início</a>
+                <a href="#about">Sobre</a>
+                <a href="#dishes">Pratos</a>
+                <a href="#gallery">Ambiente</a>
+                <a href="#location">Localização</a>
+                <a href="#reviews">Avaliações</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Braseiro Grill Churrascaria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efeito de revelação ao scroll
+        window.addEventListener('scroll', revealOnScroll);
+        
+        function revealOnScroll() {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Inicializar elementos com efeito
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Revelar a primeira seção
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+    <script>
+        // Scroll suave para todas as seções
+        document.addEventListener('DOMContentLoaded', function() {
+        // Função para scroll suave
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80; // Compensa o header fixo
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                return true;
+            }
+            return false;
+        }
+        
+        // Aplica a todos os links do menu principal
+        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const href = this.getAttribute('href');
+                const targetId = href.replace('#', '');
+                
+                if (smoothScrollTo(targetId)) {
+                    console.log('✅ Navegando para:', targetId);
+                } else {
+                    console.log('❌ Seção não encontrada:', targetId);
+                }
+            });
+        });
+        
+        // Fecha o menu mobile após clicar em um link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.querySelector('nav ul');
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+    });
+
+        // Função global para teste - você pode chamar no console
+        function irParaAvaliacoes() {
+        const reviewsSection = document.getElementById('reviews');
+        if (reviewsSection) {
+            window.scrollTo({
+                top: reviewsSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            console.log('✅ Indo para Avaliações!');
+        } else {
+            console.log('❌ Seção de avaliações não encontrada!');
+        }
+    }
+    </script>
+</body>
+</html>
